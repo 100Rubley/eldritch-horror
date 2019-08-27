@@ -1,0 +1,9 @@
+.container {
+  margin: 0 auto;
+  width: 70%;
+  height: 600px;
+  background: url(../../assets/home.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
