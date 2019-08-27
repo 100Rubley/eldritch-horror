@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classnames from 'classnames';
-import styles from './styles.scss'
+import styles from './styles.module.scss'
 
-const Button = (buttonStyle, textStyle, text) => {
-  return ( 
-    <div className={classnames(styles.container, buttonStyle)}>
-      <p className={classnames(styles.text, textStyle)}>{text}</p>
-    </div>
-  );
+class Button extends Component {
+  handleClick = () => {
+    const { onClick } = this.props;
+    onClick()
+  }
+
+  render() {
+    const {text, buttonStyle, textStyle} = this.props;
+    return ( 
+      <div className={classnames(styles.container, buttonStyle)} onClick={this.handleClick}>
+        <p className={classnames(styles.text, textStyle)}>{text}</p>
+      </div>
+    )
+  }
 }
  
 export default Button;

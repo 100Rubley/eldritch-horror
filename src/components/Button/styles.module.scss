@@ -1,11 +1,16 @@
 .container {
-  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
   height: 40px;
   background-color: antiquewhite;
-  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .text {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 22px;
+  color: black;
 }
