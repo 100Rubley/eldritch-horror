@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router'
 
 import Button from '../../components/Button'
 import styles from './styles.module.scss';
 
 class HomePage extends Component {
   handleStartClick = () => {
-    console.log('Hello')
+    const { history } = this.props;
+    history.push('/chooseAncient')
   }
 
   render() {
@@ -20,4 +22,4 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage
+export default withRouter(HomePage)
