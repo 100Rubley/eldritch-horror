@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 
+import Button from '../Button';
+import Modal from '../Modal';
 import styles from './styles.module.scss';
 
 class AncientCard extends Component {
@@ -8,7 +10,16 @@ class AncientCard extends Component {
     super(props)
     this.state = {
       id: this.props.id,
+      hover: false
     }
+  }
+
+  onMouseEnter = () => {
+    this.setState({hover: true})
+  }
+
+  onMouseLeave = () => {
+    this.setState({hover: false})
   }
 
   handleClick = (id) => {
@@ -16,8 +27,20 @@ class AncientCard extends Component {
     onClick(id);
   }
 
+  handleInfoClick = () => {
+    this.setState({
+      isModalOpen: true
+    })
+  } 
+
+  onModalClose = () => {
+    this.setState({
+      isModalOpen: false
+    })
+  }
+
   render() {
-    const { id } = this.state;
+    const { id, hover, isModalOpen } = this.state;
     const { selected, background } = this.props;
     return (
       <div 
@@ -28,8 +51,23 @@ class AncientCard extends Component {
         )} 
         onClick={() => this.handleClick(id)}
         style={{backgroundColor: background}}
+        onMouseEnter={this.onMouseEnter}
+        onMouseLeave={this.onMouseLeave}
       >
-
+        {hover ? (
+          <div>
+            <Button 
+              text={'Инфо'}
+              buttonStyle={styles.infoButton}
+              textStyle={styles.infoButtonText}
+              onClick={this.handleInfoClick}
+            />
+          </div>
+        ) : null}
+        <Modal 
+          isOpen={isModalOpen}
+          onClose={this.onModalClose}
+        />
       </div>
     );
   }

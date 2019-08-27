@@ -1,6 +1,7 @@
 {
   "name": "eldritch-horror",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@babel/core": "7.5.5",

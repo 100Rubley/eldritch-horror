@@ -1,4 +1,5 @@
 .container {
+  display: flex;
   position: relative;
   width: 250px;
   height: 150px;
@@ -15,4 +16,15 @@
 
 .selected {
   border-color: red;
+}
+
+.infoButton {
+  width: 50px;
+  height: 30px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.infoButtonText {
+  font-size: 16px;
 }

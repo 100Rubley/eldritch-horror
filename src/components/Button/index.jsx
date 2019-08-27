@@ -3,7 +3,8 @@ import classnames from 'classnames';
 import styles from './styles.module.scss'
 
 class Button extends Component {
-  handleClick = () => {
+  handleClick = (e) => {
+    e.stopPropagation()
     const { onClick } = this.props;
     onClick()
   }
