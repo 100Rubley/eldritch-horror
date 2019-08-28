@@ -4,13 +4,15 @@ import classnames from 'classnames';
 import Button from '../Button';
 import Modal from '../Modal';
 import styles from './styles.module.scss';
+import eyeIcon from '../../assets/icons/eyeIcon.png'
 
 class AncientCard extends Component {
   constructor(props) {
     super(props)
     this.state = {
       id: this.props.id,
-      hover: false
+      hover: false,
+      isModalOpen: false
     }
   }
 
@@ -57,7 +59,7 @@ class AncientCard extends Component {
         {hover ? (
           <div>
             <Button 
-              text={'Инфо'}
+              img={eyeIcon}
               buttonStyle={styles.infoButton}
               textStyle={styles.infoButtonText}
               onClick={this.handleInfoClick}

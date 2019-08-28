@@ -1,5 +1,7 @@
-import { combineReducers } from 'redux';
+import ancientsReducer from './ancients';
 
-const rootReducer = combineReducers({});
+const rootReducer = {
+  ancient: ancientsReducer
+};
 
 export default rootReducer

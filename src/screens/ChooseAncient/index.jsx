@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import styles from './styles.module.scss';
 import Button from '../../components/Button';
 import AncientCard from '../../components/AncientCard';
+import background from '../../assets/home.png'
+
+import Modal from '../../components/Modal';
 import { ancients } from '../../data'
+
+import { chooseAncient } from '../../redux/actionCreators/ancients';
+
+const mapDispatchToProps = (dispatch) => ({
+  chooseAncient: (id) => dispatch(chooseAncient(id))
+})
 
 class ChooseAncient extends Component {
   state = {
-    chosenAncientId: ''
+    chosenAncientId: '',
+    isModalOpen: false
   }
 
   onAncientClick = (id) => {
@@ -17,10 +28,25 @@ class ChooseAncient extends Component {
   }
 
   handleButtonClick = () => {
-    console.log(this.state.chosenAncientId)
+    const { chooseAncient } = this.props;
+    const { chosenAncientId } = this.state;
+    if(chosenAncientId === '') {
+      this.setState({
+        isModalOpen: true
+      })
+    } else {
+      chooseAncient({ id: chosenAncientId });
+    }
+  }
+
+  onModalClose = () => {
+    this.setState({
+      isModalOpen: false
+    })
   }
 
   render() {
+    const { isModalOpen } = this.state;
     return(
       <div className={styles.container}>
         <div className={styles.ancientsContainer}>
@@ -40,9 +66,15 @@ class ChooseAncient extends Component {
           text={'Выбрать'}
           onClick={this.handleButtonClick}
         />
+        <Modal
+          text={'Выберите Древнего'}
+          isOpen={isModalOpen}
+          onClose={this.onModalClose}
+          background={background}
+        />
       </div>
     )
   }
 }
 
-export default ChooseAncient
+export default connect(null, mapDispatchToProps)(ChooseAncient)
