@@ -13,8 +13,13 @@ const difficulty = createSelector(
   ancientState => get(ancientState, 'difficulty', 'normal')
 )
 
+const cards = createSelector(
+  ancientSelector,
+  ancientState => get(ancientState, 'cards', {})
+)
 
 export default createStructuredSelector({
   ancientId,
-  difficulty
+  difficulty,
+  cards
 })

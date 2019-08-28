@@ -3,20 +3,22 @@ import * as ActionTypes from '../actionTypes/ancients';
 const defaultState = {
   ancientId: '',
   ancientName: '',
-  firstStage: {
-    greenCards: 0,
-    blueCards: 0,
-    brownCards: 0,
-  },
-  secondStage: {
-    greenCards: 0,
-    blueCards: 0,
-    brownCards: 0,
-  },
-  thirdStage: {
-    greenCards: 0,
-    blueCards: 0,
-    brownCards: 0,
+  cards: {
+    firstStage: {
+      greenCards: 0,
+      blueCards: 0,
+      brownCards: 0,
+    },
+    secondStage: {
+      greenCards: 0,
+      blueCards: 0,
+      brownCards: 0,
+    },
+    thirdStage: {
+      greenCards: 0,
+      blueCards: 0,
+      brownCards: 0,
+    },
   },
   difficulty: 'normal'
 }
@@ -28,9 +30,7 @@ const reducer = (state = defaultState, action) => {
         ...state,
         ancientId: action.payload.id,
         ancientName: action.payload.name,
-        firstStage: action.payload.firstStage,
-        secondStage: action.payload.secondStage,
-        thirdStage: action.payload.thirdStage
+        cards: action.payload.cards
       }
     }
     case ActionTypes.CHOOSE_DIFFICULTY: {

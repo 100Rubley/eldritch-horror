@@ -3,12 +3,15 @@ import { ancients } from '../../data'
 
 export const chooseAncient = (payload) => {
   const chosen = ancients.find((ancient) => ancient.id === payload.id)
-  return { type: ActionTypes.CHOOSE_ANCIENT, payload: {
-    id: chosen.id,
-    name: chosen.name,
+  const cards = {
     firstStage: chosen.firstStage,
     secondStage: chosen.secondStage,
     thirdStage: chosen.thirdStage
+  }
+  return { type: ActionTypes.CHOOSE_ANCIENT, payload: {
+    id: chosen.id,
+    name: chosen.name,
+    cards
   }}
 }
 

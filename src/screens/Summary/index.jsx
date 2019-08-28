@@ -6,6 +6,11 @@ import Button from '../../components/Button';
 import styles from './styles.module.scss';
 import mapStateToProps from './selector';
 import { ancients, difficulties } from '../../data'
+import { shuffleMythicCards } from '../../redux/actionCreators/mythicCards';
+
+const mapDispatchToProps = dispatch => ({
+  shuffleMythicCards: (data) => dispatch(shuffleMythicCards(data))
+})
 
 class Summary extends Component {
   state = {
@@ -24,13 +29,13 @@ class Summary extends Component {
   }
 
   handleReadyClick = () => {
-
+    const { cards, difficulty, shuffleMythicCards } = this.props;
+    shuffleMythicCards({ cards, difficulty });
   }
 
   handleChangeClick = () => {
     const { history } = this.props;
     history.push('./chooseAncient')
-    console.log()
   }
 
   render() {
@@ -67,4 +72,4 @@ class Summary extends Component {
   }
 }
  
-export default connect(mapStateToProps)(withRouter(Summary));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Summary));
