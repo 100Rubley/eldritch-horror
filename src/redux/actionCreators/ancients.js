@@ -11,3 +11,10 @@ export const chooseAncient = (payload) => {
     thirdStage: chosen.thirdStage
   }}
 }
+
+export const chooseDifficulty = (payload) => {
+  return {
+    type: ActionTypes.CHOOSE_DIFFICULTY,
+    payload
+  }
+}

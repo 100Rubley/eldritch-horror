@@ -33,6 +33,12 @@ const reducer = (state = defaultState, action) => {
         thirdStage: action.payload.thirdStage
       }
     }
+    case ActionTypes.CHOOSE_DIFFICULTY: {
+      return {
+        ...state,
+        difficulty: action.payload.id
+      }
+    }
     default:
       return state
   }

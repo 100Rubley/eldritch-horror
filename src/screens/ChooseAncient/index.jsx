@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router'
 
 import styles from './styles.module.scss';
 import Button from '../../components/Button';
@@ -28,7 +29,7 @@ class ChooseAncient extends Component {
   }
 
   handleButtonClick = () => {
-    const { chooseAncient } = this.props;
+    const { chooseAncient, history } = this.props;
     const { chosenAncientId } = this.state;
     if(chosenAncientId === '') {
       this.setState({
@@ -36,6 +37,7 @@ class ChooseAncient extends Component {
       })
     } else {
       chooseAncient({ id: chosenAncientId });
+      history.push('/chooseDifficulty')
     }
   }
 
@@ -77,4 +79,4 @@ class ChooseAncient extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(ChooseAncient)
+export default connect(null, mapDispatchToProps)(withRouter(ChooseAncient))

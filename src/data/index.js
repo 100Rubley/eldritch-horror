@@ -1,3 +1,4 @@
-import ancients from './ancients'
+import ancients from './ancients';
+import difficulties from './difficulties';
 
-export { ancients }
+export { ancients, difficulties }

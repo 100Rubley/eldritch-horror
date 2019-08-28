@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+}
+
+.checkbox {
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  margin-right: 10px;
+}
+
+.checkbox.active {
+  background-color: purple;
+}
+
+.text {
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 25px;
+}

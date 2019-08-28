@@ -3,7 +3,6 @@ import cthulhu from '../assets/Ancients/Cthulthu.png';
 import iogSothoth from '../assets/Ancients/IogSothoth.png';
 import shubNiggurath from '../assets/Ancients/ShubNiggurath.png';
 
-
 export default [
   {
     id: 'azathoth',
