@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router'
 
 import Button from '../../components/Button';
 import styles from './styles.module.scss';
 import DifficultyLevel from '../../components/DifficultyLevel'
 import { difficulties } from '../../data';
 import { chooseDifficulty } from '../../redux/actionCreators/ancients';
+import mapStateToProps from './selector';
 
 const mapDispatchToProps = dispatch => ({
   chooseDifficulty: (id) => dispatch(chooseDifficulty(id))
@@ -18,7 +20,16 @@ class ChooseDifficulty extends Component{
       easy: false,
       hard: false,
     },
-    chosenId: 'normal'
+    chosenId: ''
+  }
+
+  componentDidMount() {
+    const { difficulty, ancientId, history } = this.props;
+    if(ancientId === '') {
+      history.push('/')
+    } else {
+      this.handleCheckboxClick(difficulty)
+    }
   }
 
   handleCheckboxClick = (id) => {
@@ -37,9 +48,10 @@ class ChooseDifficulty extends Component{
   }
 
   handleButtonClick = () => {
-    const { chooseDifficulty } = this.props;
+    const { chooseDifficulty, history } = this.props;
     const { chosenId } = this.state;
-    chooseDifficulty({ id: chosenId })
+    chooseDifficulty({ id: chosenId });
+    history.push('/summary');
   }
 
   render() {
@@ -69,4 +81,4 @@ class ChooseDifficulty extends Component{
   }
 }
 
-export default connect(null ,mapDispatchToProps)(ChooseDifficulty)
+export default connect(mapStateToProps ,mapDispatchToProps)(withRouter(ChooseDifficulty))

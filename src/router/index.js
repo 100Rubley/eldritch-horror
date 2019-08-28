@@ -5,6 +5,7 @@ import { store, history } from '../redux/store';
 import HomePage from '../screens/Home';
 import ChooseAncient from '../screens/ChooseAncient'
 import ChooseDifficulty from '../screens/ChooseDifficulty'
+import Summary from '../screens/Summary'
 
 import './index.css';
 
@@ -16,6 +17,7 @@ const router = (
         <Route path='/home' component={HomePage} />
         <Route path='/chooseAncient' component={ChooseAncient} />
         <Route path='/chooseDifficulty' component={ChooseDifficulty} />
+        <Route path='/summary' component={Summary} />
       </Switch>
     </Router>
   </Provider>

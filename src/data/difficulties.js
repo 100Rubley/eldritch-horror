@@ -1,7 +1,7 @@
 export default [
   {
     id: 'easy',
-    name: 'Легкая'
+    name: 'Низкая'
   },
   {
     id: 'normal',
@@ -9,6 +9,6 @@ export default [
   },
   {
     id: 'hard',
-    name: 'Сложная'
+    name: 'Высокая'
   },
 ]

@@ -9,8 +9,8 @@ import background from '../../assets/home.png'
 
 import Modal from '../../components/Modal';
 import { ancients } from '../../data'
-
 import { chooseAncient } from '../../redux/actionCreators/ancients';
+import mapStateToProps from './selector';
 
 const mapDispatchToProps = (dispatch) => ({
   chooseAncient: (id) => dispatch(chooseAncient(id))
@@ -25,6 +25,13 @@ class ChooseAncient extends Component {
   onAncientClick = (id) => {
     this.setState({
       chosenAncientId: id
+    })
+  }
+
+  componentDidMount() {
+    const { ancientId } = this.props;
+    this.setState({
+      chosenAncientId: ancientId
     })
   }
 
@@ -79,4 +86,4 @@ class ChooseAncient extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(withRouter(ChooseAncient))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ChooseAncient))

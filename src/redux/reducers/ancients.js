@@ -18,7 +18,7 @@ const defaultState = {
     blueCards: 0,
     brownCards: 0,
   },
-  difficulty: ''
+  difficulty: 'normal'
 }
 
 const reducer = (state = defaultState, action) => {
