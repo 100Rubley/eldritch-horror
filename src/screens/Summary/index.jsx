@@ -30,6 +30,7 @@ class Summary extends Component {
   handleChangeClick = () => {
     const { history } = this.props;
     history.push('./chooseAncient')
+    console.log()
   }
 
   render() {
