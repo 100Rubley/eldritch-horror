@@ -29,7 +29,7 @@ class ChooseAncient extends Component {
               <AncientCard 
                 key={ancient.id}
                 id={ancient.id}
-                background={ancient.background}
+                background={ancient.cardFace}
                 onClick={this.onAncientClick}
                 selected={this.state.chosenAncientId}
               />

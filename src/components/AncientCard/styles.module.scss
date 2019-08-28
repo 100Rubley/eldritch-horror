@@ -1,12 +1,15 @@
 .container {
   display: flex;
   position: relative;
-  width: 250px;
-  height: 150px;
+  width: 200px;
+  height: 260px;
   transition: transform 0.2s;
-  background-color: yellowgreen;
+  background-repeat: no-repeat;
+  background-size: contain;
   border-radius: 5px;
   border: 2px solid transparent;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .container:hover {

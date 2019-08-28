@@ -50,7 +50,7 @@ class AncientCard extends Component {
             {[styles.selected]: id === selected},
         )} 
         onClick={() => this.handleClick(id)}
-        style={{backgroundColor: background}}
+        style={{backgroundImage: `url(${background})`}}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
       >
@@ -67,6 +67,7 @@ class AncientCard extends Component {
         <Modal 
           isOpen={isModalOpen}
           onClose={this.onModalClose}
+          background={background}
         />
       </div>
     );

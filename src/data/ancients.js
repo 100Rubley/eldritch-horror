@@ -1,27 +1,28 @@
+import azathoth from '../assets/Ancients/Azathoth.png';
+import cthulhu from '../assets/Ancients/Cthulthu.png';
+import iogSothoth from '../assets/Ancients/IogSothoth.png';
+import shubNiggurath from '../assets/Ancients/ShubNiggurath.png';
+
+
 export default [
   {
-    id: 1,
-    name: 'name1',
-    background: 'yellow'
+    id: 'azathoth',
+    name: 'azathoth',
+    cardFace: azathoth
   },
   {
-    id: 2,
-    name: 'name2',
-    background: 'blue'
+    id: 'cthulhu',
+    name: 'cthulhu',
+    cardFace: cthulhu
   },
   {
-    id: 3,
-    name: 'name3',
-    background: 'green'
+    id: 'iogSothoth',
+    name: 'iogSothoth',
+    cardFace: iogSothoth
   },
   {
-    id: 4,
-    name: 'name4',
-    background: 'purple'
-  },
-  {
-    id: 5,
-    name: 'name5',
-    background: 'yellow'
+    id: 'shubNiggurath',
+    name: 'shubNiggurath',
+    cardFace: shubNiggurath
   },
 ]
