@@ -1,17 +1,35 @@
 import { createLogger } from 'redux-logger';
 import { createBrowserHistory } from 'history';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers'
 
+let composeEnhancers
+
+const logger = createLogger({ collapsed: true });
 const history = createBrowserHistory({
   basename: '/'
 });
+if(process.env.NODE_ENV === 'development') {
+  composeEnhancers = composeWithDevTools(
+    applyMiddleware(
+      logger,
+      routerMiddleware(history)
+    )
+  )
+} else {
+  composeEnhancers = compose(
+    applyMiddleware(
+      logger,
+      routerMiddleware(history)
+    )
+  )
+}
+
 
 const configureStore = () => {
   const initialState = {}
-  const logger = createLogger({ collapsed: true });
   const appReducer = combineReducers({
     routing: routerReducer,
     ...rootReducer
@@ -19,12 +37,7 @@ const configureStore = () => {
   return createStore(
     appReducer,
     initialState,
-    composeWithDevTools(
-      applyMiddleware(
-        logger,
-        routerMiddleware(history)
-      )
-    )
+    composeEnhancers
   )
 } 
 
