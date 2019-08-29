@@ -56,7 +56,8 @@ const reducer = (state = defaultState, action) => {
     case ActionTypes.COMPLETE_MYTHIC_DECK: {
       return {
         ...state,
-        deck: action.payload
+        deck: action.payload,
+        decks: null
       }
     }
     default:

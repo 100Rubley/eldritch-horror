@@ -32,20 +32,21 @@ class Summary extends Component {
   }
 
   handleReadyClick = () => {
-    const { completeMythicDeck, decks, cards } = this.props;
+    const { completeMythicDeck, decks, cards, history } = this.props;
     completeMythicDeck({ decks, cards });
+    history.push('gameBoard');
   }
 
   handleChangeClick = () => {
     const { history } = this.props;
-    history.push('./chooseAncient')
+    history.push('./chooseAncient');
   }
 
   render() {
     const { difficulty } = this.props;
     const { chosenAncient } = this.state;
-    const background = ancients.find(ancient => ancient.id === chosenAncient).cardFace
-    const difficultyLevel = difficulties.find(diff => diff.id === difficulty).name
+    const background = ancients.find(ancient => ancient.id === chosenAncient).cardFace;
+    const difficultyLevel = difficulties.find(diff => diff.id === difficulty).name;
     return (
       <div className={styles.container}>
         <div className={styles.header}>
