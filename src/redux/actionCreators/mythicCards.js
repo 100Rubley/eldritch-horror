@@ -1,9 +1,12 @@
 import * as ActionTypes from '../actionTypes/mythicCards';
 import { brownCards } from '../../data/mythicCards'
 
-export const shuffleMythicCards = payload => dispatch => {
-  dispatch(setMythicCards(payload));
-};
+export const setDeckDifficulty = payload => {
+  return {
+    type: ActionTypes.SET_DECK_DIFFICULTY,
+    payload
+  }
+}
 
 export const setMythicCards = payload => {
   return {
@@ -18,10 +21,3 @@ export const setMythicCardsAmount = payload => {
     payload
   }
 };
-
-export const getInitialCards = payload => {
-  console.log(payload.id)
-  return {
-    type: ''
-  }
-}

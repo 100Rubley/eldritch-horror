@@ -24,10 +24,15 @@ const defaultState = {
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
+    case ActionTypes.SET_DECK_DIFFICULTY: {
+      return {
+        ...state,
+        difficulty: action.payload.id
+      }
+    }
     case ActionTypes.SET_MYTHIC_CARDS: {
       return {
         ...state,
-        difficulty: action.payload.difficulty,
         firstStage: action.payload.cards.firstStage,
         secondStage: action.payload.cards.secondStage,
         thirdStage: action.payload.cards.thirdStage

@@ -6,7 +6,7 @@ import Button from '../../components/Button';
 import styles from './styles.module.scss';
 import mapStateToProps from './selector';
 import { ancients, difficulties } from '../../data'
-import { shuffleMythicCards } from '../../redux/actionCreators/mythicCards';
+import { shuffleMythicCards } from '../../redux/actionCreators/screens';
 
 const mapDispatchToProps = dispatch => ({
   shuffleMythicCards: (data) => dispatch(shuffleMythicCards(data))
@@ -29,8 +29,8 @@ class Summary extends Component {
   }
 
   handleReadyClick = () => {
-    const { cards, difficulty, shuffleMythicCards } = this.props;
-    shuffleMythicCards({ cards, difficulty });
+    const { cards, shuffleMythicCards } = this.props;
+    shuffleMythicCards({ cards });
   }
 
   handleChangeClick = () => {
