@@ -18,19 +18,18 @@ class Summary extends Component {
   }
 
   componentDidMount() {
-    const { history, ancientId } = this.props;
+    const { history, ancientId, shuffleMythicCards, mythicCards, cards } = this.props;
     if(ancientId === '') {
       history.push('/')
     } else {
       this.setState({
         chosenAncient: ancientId
       })
+      shuffleMythicCards({ mythicCards, cards });
     }
   }
 
   handleReadyClick = () => {
-    const { cards, shuffleMythicCards } = this.props;
-    shuffleMythicCards({ cards });
   }
 
   handleChangeClick = () => {

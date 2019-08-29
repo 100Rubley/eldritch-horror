@@ -1,6 +1,7 @@
-import { setMythicCardsAmount, setDeckDifficulty, setMythicCards } from './mythicCards';
+import { setMythicCardsAmount, setDeckDifficulty, setMythicCards, setMythicDecks } from './mythicCards';
 import { chooseAncientResult, chooseDifficultyResult } from './ancients'
 import { ancients } from '../../data';
+import { shuffleMythicCardsUtil } from '../../utils'
 
 export const chooseAncient = payload => dispatch => {
   const chosen = ancients.find((ancient) => ancient.id === payload.id)
@@ -25,12 +26,15 @@ export const chooseAncient = payload => dispatch => {
 
 
 export const chooseDifficulty = payload => dispatch => {
-  console.log(payload)
   dispatch(chooseDifficultyResult(payload));
   dispatch(setDeckDifficulty(payload))
 };
 
 
 export const shuffleMythicCards = payload => dispatch => {
-  dispatch(setMythicCards(payload));
+  const { cards, mythicCards } = payload;
+  const { greenCardsAmount, brownCardsAmount, blueCardsAmount, difficulty } = mythicCards
+  dispatch(setMythicCards(cards));
+  const decks = shuffleMythicCardsUtil(greenCardsAmount, brownCardsAmount, blueCardsAmount, difficulty);
+  dispatch(setMythicDecks(decks));
 };

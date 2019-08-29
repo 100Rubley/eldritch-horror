@@ -19,7 +19,8 @@ const defaultState = {
   greenCardsAmount: 0,
   brownCardsAmount: 0,
   blueCardsAmount: 0,
-  difficulty: ''
+  difficulty: '',
+  decks: {},
 }
 
 const reducer = (state = defaultState, action) => {
@@ -33,9 +34,9 @@ const reducer = (state = defaultState, action) => {
     case ActionTypes.SET_MYTHIC_CARDS: {
       return {
         ...state,
-        firstStage: action.payload.cards.firstStage,
-        secondStage: action.payload.cards.secondStage,
-        thirdStage: action.payload.cards.thirdStage
+        firstStage: action.payload.firstStage,
+        secondStage: action.payload.secondStage,
+        thirdStage: action.payload.thirdStage
       }
     }
     case ActionTypes.SET_MYTHIC_CARDS_AMOUNT: {
@@ -44,6 +45,12 @@ const reducer = (state = defaultState, action) => {
         greenCardsAmount: action.payload.greenCards,
         blueCardsAmount: action.payload.blueCards,
         brownCardsAmount: action.payload.brownCards,
+      }
+    }
+    case ActionTypes.SET_MYTHIC_DECKS: {
+      return {
+        ...state,
+        decks: {...action.payload}
       }
     }
     default:

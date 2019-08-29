@@ -1,5 +1,4 @@
 import * as ActionTypes from '../actionTypes/mythicCards';
-import { brownCards } from '../../data/mythicCards'
 
 export const setDeckDifficulty = payload => {
   return {
@@ -21,3 +20,10 @@ export const setMythicCardsAmount = payload => {
     payload
   }
 };
+
+export const setMythicDecks = payload => {
+  return {
+    type: ActionTypes.SET_MYTHIC_DECKS,
+    payload
+  }
+}
