@@ -9,7 +9,7 @@ import background from '../../assets/home.png'
 
 import Modal from '../../components/Modal';
 import { ancients } from '../../data'
-import { chooseAncient } from '../../redux/actionCreators/ancients';
+import { chooseAncient } from '../../redux/actionCreators/screens';
 import mapStateToProps from './selector';
 
 const mapDispatchToProps = (dispatch) => ({

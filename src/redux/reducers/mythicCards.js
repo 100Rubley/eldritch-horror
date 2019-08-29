@@ -16,18 +16,47 @@ const defaultState = {
     blueCards: 0,
     brownCards: 0,
   },
-  difficulty: ''
+  greenCardsAmount: 0,
+  brownCardsAmount: 0,
+  blueCardsAmount: 0,
+  difficulty: '',
+  decks: {},
 }
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
+    case ActionTypes.SET_DECK_DIFFICULTY: {
+      return {
+        ...state,
+        difficulty: action.payload.id
+      }
+    }
     case ActionTypes.SET_MYTHIC_CARDS: {
       return {
         ...state,
-        difficulty: action.payload.difficulty,
-        firstStage: action.payload.cards.firstStage,
-        secondStage: action.payload.cards.secondStage,
-        thirdStage: action.payload.cards.thirdStage
+        firstStage: action.payload.firstStage,
+        secondStage: action.payload.secondStage,
+        thirdStage: action.payload.thirdStage
+      }
+    }
+    case ActionTypes.SET_MYTHIC_CARDS_AMOUNT: {
+      return {
+        ...state,
+        greenCardsAmount: action.payload.greenCards,
+        blueCardsAmount: action.payload.blueCards,
+        brownCardsAmount: action.payload.brownCards,
+      }
+    }
+    case ActionTypes.SET_MYTHIC_DECKS: {
+      return {
+        ...state,
+        decks: {...action.payload}
+      }
+    }
+    case ActionTypes.COMPLETE_MYTHIC_DECK: {
+      return {
+        ...state,
+        deck: action.payload
       }
     }
     default:

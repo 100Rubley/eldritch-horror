@@ -25,7 +25,7 @@ const defaultState = {
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
-    case ActionTypes.CHOOSE_ANCIENT: {
+    case ActionTypes.CHOOSE_ANCIENT_RESULT: {
       return {
         ...state,
         ancientId: action.payload.id,
@@ -33,7 +33,7 @@ const reducer = (state = defaultState, action) => {
         cards: action.payload.cards
       }
     }
-    case ActionTypes.CHOOSE_DIFFICULTY: {
+    case ActionTypes.CHOOSE_DIFFICULTY_RESULT: {
       return {
         ...state,
         difficulty: action.payload.id

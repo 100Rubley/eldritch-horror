@@ -6,10 +6,12 @@ import Button from '../../components/Button';
 import styles from './styles.module.scss';
 import mapStateToProps from './selector';
 import { ancients, difficulties } from '../../data'
-import { shuffleMythicCards } from '../../redux/actionCreators/mythicCards';
+import { shuffleMythicCards } from '../../redux/actionCreators/screens';
+import { completeMythicDeck } from '../../redux/actionCreators/mythicCards';
 
 const mapDispatchToProps = dispatch => ({
-  shuffleMythicCards: (data) => dispatch(shuffleMythicCards(data))
+  shuffleMythicCards: (data) => dispatch(shuffleMythicCards(data)),
+  completeMythicDeck: (data) => dispatch(completeMythicDeck(data))
 })
 
 class Summary extends Component {
@@ -18,19 +20,20 @@ class Summary extends Component {
   }
 
   componentDidMount() {
-    const { history, ancientId } = this.props;
+    const { history, ancientId, shuffleMythicCards, mythicCards, cards } = this.props;
     if(ancientId === '') {
       history.push('/')
     } else {
       this.setState({
         chosenAncient: ancientId
       })
+      shuffleMythicCards({ mythicCards, cards });
     }
   }
 
   handleReadyClick = () => {
-    const { cards, difficulty, shuffleMythicCards } = this.props;
-    shuffleMythicCards({ cards, difficulty });
+    const { completeMythicDeck, decks, cards } = this.props;
+    completeMythicDeck({ decks, cards });
   }
 
   handleChangeClick = () => {

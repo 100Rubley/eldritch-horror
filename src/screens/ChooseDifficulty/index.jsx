@@ -6,7 +6,7 @@ import Button from '../../components/Button';
 import styles from './styles.module.scss';
 import DifficultyLevel from '../../components/DifficultyLevel'
 import { difficulties } from '../../data';
-import { chooseDifficulty } from '../../redux/actionCreators/ancients';
+import { chooseDifficulty } from '../../redux/actionCreators/screens';
 import mapStateToProps from './selector';
 
 const mapDispatchToProps = dispatch => ({
