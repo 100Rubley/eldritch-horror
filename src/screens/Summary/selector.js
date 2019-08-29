@@ -19,9 +19,15 @@ const cards = createSelector(
   ancientState => get(ancientState, 'cards', {})
 )
 
+const decks = createSelector(
+  mythicCards,
+  mythicCardsState => get(mythicCardsState, 'decks', {})
+)
+
 export default createStructuredSelector({
   ancientId,
   difficulty,
   cards,
-  mythicCards
+  mythicCards,
+  decks
 })

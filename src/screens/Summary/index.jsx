@@ -7,9 +7,11 @@ import styles from './styles.module.scss';
 import mapStateToProps from './selector';
 import { ancients, difficulties } from '../../data'
 import { shuffleMythicCards } from '../../redux/actionCreators/screens';
+import { completeMythicDeck } from '../../redux/actionCreators/mythicCards';
 
 const mapDispatchToProps = dispatch => ({
-  shuffleMythicCards: (data) => dispatch(shuffleMythicCards(data))
+  shuffleMythicCards: (data) => dispatch(shuffleMythicCards(data)),
+  completeMythicDeck: (data) => dispatch(completeMythicDeck(data))
 })
 
 class Summary extends Component {
@@ -30,6 +32,8 @@ class Summary extends Component {
   }
 
   handleReadyClick = () => {
+    const { completeMythicDeck, decks, cards } = this.props;
+    completeMythicDeck({ decks, cards });
   }
 
   handleChangeClick = () => {
