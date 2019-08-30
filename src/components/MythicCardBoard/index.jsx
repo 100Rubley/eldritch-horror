@@ -16,9 +16,73 @@ class MythicCardBoard extends Component {
     }
   }
 
+  removeCard = (color) => {
+    const { firstStage, secondStage, thirdStage } = this.state;
+    switch(color) {
+      case 'green': {
+        if(firstStage.greenCards > 0) {
+          firstStage.greenCards = firstStage.greenCards - 1;
+          this.setState({
+            firstStage
+          })
+        } else if(secondStage.greenCards > 0) {
+          secondStage.greenCards = secondStage.greenCards - 1;
+          this.setState({
+            secondStage
+          })
+        } else {
+          thirdStage.greenCards = thirdStage.greenCards - 1;
+          this.setState({
+            thirdStage
+          })
+        }
+        break
+      }
+      case 'brown': {
+        if(firstStage.brownCards > 0) {
+          firstStage.brownCards = firstStage.brownCards - 1;
+          this.setState({
+            firstStage
+          })
+        } else if(secondStage.brownCards > 0) {
+          secondStage.brownCards = secondStage.brownCards - 1;
+          this.setState({
+            secondStage
+          })
+        } else {
+          thirdStage.brownCards = thirdStage.brownCards - 1;
+          this.setState({
+            thirdStage
+          })
+        }
+        break
+      }
+      case 'blue': {
+        if(firstStage.blueCards > 0) {
+          firstStage.blueCards = firstStage.blueCards - 1;
+          this.setState({
+            firstStage
+          })
+        } else if(secondStage.blueCards > 0) {
+          secondStage.blueCards = secondStage.blueCards - 1;
+          this.setState({
+            secondStage
+          })
+        } else {
+          thirdStage.blueCards = thirdStage.blueCards - 1;
+          this.setState({
+            thirdStage
+          })
+        }
+        break
+      }
+      default:
+        break
+    }
+  }
+
   render() {
     const { firstStage, secondStage, thirdStage, deck } = this.state;
-    console.log(firstStage, secondStage, thirdStage)
     return (
       <div className={styles.container}>
         <div className={styles.stagesContainer}>
@@ -78,6 +142,8 @@ class MythicCardBoard extends Component {
           deck={deck}
           defaultBackground={cardBackGround}
           deckStyle={styles.decksStyle}
+          ancientDeck
+          removeCard={this.removeCard}
         />
       </div>
     );
