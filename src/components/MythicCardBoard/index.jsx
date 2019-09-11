@@ -138,7 +138,8 @@ class MythicCardBoard extends Component {
             </div>
           </div>
         </div>
-        <Deck 
+        <Deck
+          deckLabel={'Колода Мифов'}
           deck={deck}
           defaultBackground={cardBackGround}
           deckStyle={styles.decksStyle}

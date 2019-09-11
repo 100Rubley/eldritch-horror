@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
 import Modal from '../Modal';
+import crossIcon from '../../assets/icons/crossIcon.png'
 
 class Deck extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class Deck extends Component {
       background: props.defaultBackground,
       isModalOpen: false,
       nextCardColor: '',
+      isEmpty: false
     }
   }
 
@@ -20,6 +22,10 @@ class Deck extends Component {
     const { deck } = this.state;
     if(deck.length > 0){
       const nextCard = deck.shift();
+      if(deck.length === 0) {this.setState({
+        isEmpty: true
+      })
+      }
       const { ancientDeck } = this.props;
       if(ancientDeck) {
         this.setState({
@@ -44,19 +50,40 @@ class Deck extends Component {
     })
   }
 
+  deckBackgroundCalc = () => {
+    const { deck, defaultBackground} = this.state;
+    const { ancientDeck } = this.props;
+    if(deck.length>0) {
+      return defaultBackground
+    } else {
+      if(ancientDeck) {
+        return crossIcon
+      } else {
+        return crossIcon
+      }
+    }
+  }
+
   render() {
-    const { background, cardClicked, isModalOpen, defaultBackground } = this.state;
-    const { deckStyle } = this.props;
+    const { background, cardClicked, isModalOpen, defaultBackground, isEmpty } = this.state;
+    const { deckStyle, deckLabel } = this.props;
+    console.log(isEmpty)
     return (
       <div>
+        <div className={styles.deckLabel}>{deckLabel}</div>
         <div 
           onClick={this.onCardClick}
-          style={{backgroundImage: `url(${defaultBackground})`}}
+          style={{backgroundImage: `url(${this.deckBackgroundCalc()})`}}
           className={classnames(
             styles.deckContainer, 
             deckStyle, 
-            {[styles.centered]: cardClicked
-            })} 
+            {
+              [styles.centered]: cardClicked
+            },
+            {
+              [styles.emptyDeck]: isEmpty
+            }
+            )} 
         />
         <Modal 
           isOpen={isModalOpen}

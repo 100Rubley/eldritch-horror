@@ -13,3 +13,14 @@
   transform: scale(1.1);
   border-color: purple;
 }
+
+.deckLabel {
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+  font-style: italic
+}
+
+.emptyDeck:hover {
+  transform: none;
+}
