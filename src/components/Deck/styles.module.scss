@@ -1,0 +1,26 @@
+.deckContainer {
+  width: 150px;
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  transition: transform 0.2s;
+}
+
+.deckContainer:hover {
+  transform: scale(1.1);
+  border-color: purple;
+}
+
+.deckLabel {
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+  font-style: italic
+}
+
+.emptyDeck:hover {
+  transform: none;
+}

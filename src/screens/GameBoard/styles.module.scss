@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 25px;
+  width: 70%;
+  height: 600px;
+  background-color: black;
+}
+
+.mythicCardsContainer {
+  width: 35%;
+  height: 500px;
+}
+
+
+.commonCardsContainer {
+  width: 60%;
+  height: 500px;
+}

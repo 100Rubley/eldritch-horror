@@ -3,9 +3,10 @@ import { Provider } from 'react-redux';
 import { Router, Switch, Redirect, Route } from 'react-router-dom';
 import { store, history } from '../redux/store';
 import HomePage from '../screens/Home';
-import ChooseAncient from '../screens/ChooseAncient'
-import ChooseDifficulty from '../screens/ChooseDifficulty'
-import Summary from '../screens/Summary'
+import ChooseAncient from '../screens/ChooseAncient';
+import ChooseDifficulty from '../screens/ChooseDifficulty';
+import Summary from '../screens/Summary';
+import GameBoard from '../screens/GameBoard'
 
 import './index.css';
 
@@ -18,6 +19,7 @@ const router = (
         <Route path='/chooseAncient' component={ChooseAncient} />
         <Route path='/chooseDifficulty' component={ChooseDifficulty} />
         <Route path='/summary' component={Summary} />
+        <Route path='/gameBoard' component={GameBoard} />
       </Switch>
     </Router>
   </Provider>
