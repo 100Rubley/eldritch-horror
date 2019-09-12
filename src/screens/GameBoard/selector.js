@@ -3,6 +3,7 @@ import get from 'lodash/get';
 
 const ancientSelector = state => state.ancient;
 const mythicCardsSelector = state => state.mythicCards;
+const commonDecksSelector = state => state.commonDecks
 
 const ancientId = createSelector(
   ancientSelector,
@@ -29,10 +30,16 @@ const thirdStage = createSelector(
   mythicCardsState => get(mythicCardsState, 'thirdStage', [])
 )
 
+const purpleContacts = createSelector(
+  commonDecksSelector,
+  commonDecksState => get(commonDecksState, 'purpleContacts', [])
+)
+
 export default createStructuredSelector({
   ancientId,
   deck,
   firstStage,
   secondStage,
-  thirdStage
+  thirdStage,
+  purpleContacts,
 })

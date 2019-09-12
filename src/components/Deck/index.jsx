@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import shuffle from 'lodash/shuffle'
 
 import styles from './styles.module.scss';
 import classnames from 'classnames';
@@ -20,13 +21,20 @@ class Deck extends Component {
 
   onCardClick = () => {
     const { deck } = this.state;
+    const { ancientDeck } = this.props;
     if(deck.length > 0){
       const nextCard = deck.shift();
-      if(deck.length === 0) {this.setState({
-        isEmpty: true
-      })
+      if(deck.length === 0) {
+        if(ancientDeck) {
+          this.setState({
+            isEmpty: true
+          })
+        } else {
+          this.setState({
+            deck: shuffle([...this.props.deck])
+          })
+        }
       }
-      const { ancientDeck } = this.props;
       if(ancientDeck) {
         this.setState({
           nextCardColor: nextCard.color
@@ -59,7 +67,7 @@ class Deck extends Component {
       if(ancientDeck) {
         return crossIcon
       } else {
-        return crossIcon
+        return defaultBackground
       }
     }
   }
@@ -67,7 +75,6 @@ class Deck extends Component {
   render() {
     const { background, cardClicked, isModalOpen, defaultBackground, isEmpty } = this.state;
     const { deckStyle, deckLabel } = this.props;
-    console.log(isEmpty)
     return (
       <div>
         <div className={styles.deckLabel}>{deckLabel}</div>

@@ -6,14 +6,17 @@ import styles from './styles.module.scss';
 import Button from '../../components/Button';
 import AncientCard from '../../components/AncientCard';
 import background from '../../assets/home.png'
+import { purpleContacts } from '../../data/commonCards'
 
 import Modal from '../../components/Modal';
 import { ancients } from '../../data'
 import { chooseAncient } from '../../redux/actionCreators/screens';
+import { shuffleCommonCards } from "../../redux/actionCreators/commonDecks";
 import mapStateToProps from './selector';
 
 const mapDispatchToProps = (dispatch) => ({
-  chooseAncient: (id) => dispatch(chooseAncient(id))
+  chooseAncient: (id) => dispatch(chooseAncient(id)),
+  shuffleCommonCards: (decks) => dispatch(shuffleCommonCards(decks))
 })
 
 class ChooseAncient extends Component {
@@ -36,7 +39,7 @@ class ChooseAncient extends Component {
   }
 
   handleButtonClick = () => {
-    const { chooseAncient, history } = this.props;
+    const { chooseAncient, history, shuffleCommonCards } = this.props;
     const { chosenAncientId } = this.state;
     if(chosenAncientId === '') {
       this.setState({
@@ -44,6 +47,11 @@ class ChooseAncient extends Component {
       })
     } else {
       chooseAncient({ id: chosenAncientId });
+      shuffleCommonCards(
+        {
+          purpleContacts
+        }
+      );
       history.push('/chooseDifficulty')
     }
   }

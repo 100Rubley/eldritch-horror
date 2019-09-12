@@ -16,6 +16,9 @@
 
 
 .commonCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   width: 60%;
   height: 500px;
 }
