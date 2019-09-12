@@ -9,7 +9,8 @@ const reducer = (state = defaultState, action) => {
     case ActionTypes.SHUFFLE_COMMON_CARDS:{
       return {
         ...state,
-        purpleContacts: action.payload.purpleContacts
+        purpleContacts: action.payload.purpleContacts,
+        gates: action.payload.gates
       }
     }
     default: 

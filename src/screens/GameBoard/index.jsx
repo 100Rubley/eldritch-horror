@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import MythicCardBoard from '../../components/MythicCardBoard'
-import purpleContactsBackground from '../../assets/CardBackgrounds/purpleContactsBackground.png'
-import Deck from '../../components/Deck'
+import MythicCardBoard from '../../components/MythicCardBoard';
+import purpleContactsBackground from '../../assets/CardBackgrounds/purpleContactsBackground.png';
+import gatesBackground from '../../assets/CardBackgrounds/gatesBackground.png'
+import Deck from '../../components/Deck';
 import styles from "./styles.module.scss";
 
 import mapStateToProps from './selector';
@@ -17,7 +18,8 @@ class GameBoard extends Component {
   }
 
   render() {
-    const { deck, firstStage, secondStage, thirdStage, purpleContacts } = this.props
+    const { deck, firstStage, secondStage, thirdStage, purpleContacts, gates } = this.props
+    console.log(gates)
     return (
       <div className={styles.container}>
         <div className={styles.mythicCardsContainer}>
@@ -32,6 +34,10 @@ class GameBoard extends Component {
           <Deck 
             deck={purpleContacts}
             defaultBackground={purpleContactsBackground}
+          />
+          <Deck 
+            deck={gates}
+            defaultBackground={gatesBackground}
           />
         </div>
       </div>

@@ -29,7 +29,8 @@ class Modal extends Component {
                       backgroundImage: `url(${background})`,
                       backgroundSize: 'cover',
                       backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'center'
+                      backgroundPosition: 'center',
+                      cursor: 'pointer'
                     }}
                   />
                   <BackSide
