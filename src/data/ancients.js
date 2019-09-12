@@ -31,6 +31,8 @@ export default [
     id: 'cthulhu',
     name: 'cthulhu',
     cardFace: cthulhu,
+    contactsDeck: ancientContacts.cthulhuContacts,
+    contactsDeckBackground: ancientContactsBackgrounds.cthulhuContactsBackground,
     specialCards: specialCards.cthulhuCards,
     specialCardsBackground: specialBackgrounds.cthulhuSpecialBackground,
     firstStage: {
@@ -53,6 +55,8 @@ export default [
     id: 'iogSothoth',
     name: 'iogSothoth',
     cardFace: iogSothoth,
+    contactsDeck: ancientContacts.iogSothothContacts,
+    contactsDeckBackground: ancientContactsBackgrounds.iogSothothContactsBackground,
     specialCards: specialCards.iogSothothCards,
     specialCardsBackground: specialBackgrounds.iogSothothSpecialBackground,
     firstStage: {
@@ -75,6 +79,8 @@ export default [
     id: 'shubNiggurath',
     name: 'shubNiggurath',
     cardFace: shubNiggurath,
+    contactsDeck: ancientContacts.shubNiggurathContacts,
+    contactsDeckBackground: ancientContactsBackgrounds.shubNiggurathContactsBackground,
     firstStage: {
       greenCards: 1,
       blueCards: 1,
