@@ -1,3 +1,4 @@
+import shuffle from 'lodash/shuffle'
 import { setMythicCardsAmount, setDeckDifficulty, setMythicCards, setMythicDecks } from './mythicCards';
 import { chooseAncientResult, chooseDifficultyResult } from './ancients'
 import { ancients } from '../../data';
@@ -13,7 +14,11 @@ export const chooseAncient = payload => dispatch => {
   const ancientResult = {
     id: chosen.id,
     name: chosen.name,
-    cards
+    specialCards: shuffle(chosen.specialCards),
+    specialCardsBackground: chosen.specialCardsBackground || false,
+    cards,
+    contactsDeck: shuffle(chosen.contactsDeck),
+    contactsDeckBackground: chosen.contactsDeckBackground
   };
   const cardsResult = {
     blueCards: cards.firstStage.blueCards+cards.secondStage.blueCards+cards.thirdStage.blueCards,

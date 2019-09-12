@@ -1,13 +1,16 @@
-import azathoth from '../assets/Ancients/Azathoth.png';
-import cthulhu from '../assets/Ancients/Cthulthu.png';
-import iogSothoth from '../assets/Ancients/IogSothoth.png';
-import shubNiggurath from '../assets/Ancients/ShubNiggurath.png';
+import { azathoth, cthulhu, shubNiggurath, iogSothoth} from '../assets/Ancients'
+import specialBackgrounds from '../assets/CardBackgrounds/SpecialCardBackgrounds'
+import specialCards from './specialCards';
+import ancientContacts from './ancientContacts';
+import ancientContactsBackgrounds from '../assets/CardBackgrounds/AncientContacts'
 
 export default [
   {
     id: 'azathoth',
     name: 'azathoth',
     cardFace: azathoth,
+    contactsDeck: ancientContacts.azathothContacts,
+    contactsDeckBackground: ancientContactsBackgrounds.azathothContactsBackground,
     firstStage: {
       greenCards: 1,
       blueCards: 1,
@@ -28,6 +31,8 @@ export default [
     id: 'cthulhu',
     name: 'cthulhu',
     cardFace: cthulhu,
+    specialCards: specialCards.cthulhuCards,
+    specialCardsBackground: specialBackgrounds.cthulhuSpecialBackground,
     firstStage: {
       greenCards: 0,
       blueCards: 2,
@@ -48,6 +53,8 @@ export default [
     id: 'iogSothoth',
     name: 'iogSothoth',
     cardFace: iogSothoth,
+    specialCards: specialCards.iogSothothCards,
+    specialCardsBackground: specialBackgrounds.iogSothothSpecialBackground,
     firstStage: {
       greenCards: 0,
       blueCards: 1,

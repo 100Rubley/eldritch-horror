@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import MythicCardBoard from '../../components/MythicCardBoard';
-import commonContactsBackground from '../../assets/CardBackgrounds/commonContactsBackground.png'
-import purpleContactsBackground from '../../assets/CardBackgrounds/purpleContactsBackground.png';
-import greenContactsBackground from '../../assets/CardBackgrounds/greenContactsBackground.png'
-import brownContactsBackground from '../../assets/CardBackgrounds/brownContactsBackground.png'
-import gatesBackground from '../../assets/CardBackgrounds/gatesBackground.png'
+import commonBackgrounds from '../../assets/CardBackgrounds/CommonBackgrounds'
 import Deck from '../../components/Deck';
 import styles from "./styles.module.scss";
 
@@ -31,7 +27,11 @@ class GameBoard extends Component {
       brownContacts,
       commonContacts,
       gates,
-      expeditions
+      expeditions,
+      specialCards,
+      specialCardsBackground,
+      contactsDeck,
+      contactsDeckBackground
     } = this.props
     return (
       <div className={styles.container}>
@@ -46,28 +46,38 @@ class GameBoard extends Component {
         <div className={styles.commonCardsContainer}>
           <Deck 
             deck={commonContacts}
-            defaultBackground={commonContactsBackground}
+            defaultBackground={commonBackgrounds.commonContactsBackground}
           />
           <Deck 
             deck={purpleContacts}
-            defaultBackground={purpleContactsBackground}
+            defaultBackground={commonBackgrounds.purpleContactsBackground}
           />
           <Deck 
             deck={greenContacts}
-            defaultBackground={greenContactsBackground}
+            defaultBackground={commonBackgrounds.greenContactsBackground}
           />
           <Deck 
             deck={brownContacts}
-            defaultBackground={brownContactsBackground}
+            defaultBackground={commonBackgrounds.brownContactsBackground}
           />
           <Deck 
             deck={gates}
-            defaultBackground={gatesBackground}
+            defaultBackground={commonBackgrounds.gatesBackground}
           />
           <Deck 
             deck={expeditions}
             expeditionsDeck
           />
+          <Deck 
+            deck={contactsDeck}
+            defaultBackground={contactsDeckBackground}
+          />
+          {specialCardsBackground &&
+            <Deck 
+              deck={specialCards}
+              defaultBackground={specialCardsBackground}
+            />
+          }
         </div>
       </div>
     );

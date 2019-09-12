@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import cardBackGround from '../../assets/CardBackgrounds/mythicCardBackground.png';
+import commonBackgrounds from '../../assets/CardBackgrounds/CommonBackgrounds';
 
 import Deck from '../Deck';
 import styles from './styles.module.scss';
@@ -141,7 +141,7 @@ class MythicCardBoard extends Component {
         <Deck
           deckLabel={'Колода Мифов'}
           deck={deck}
-          defaultBackground={cardBackGround}
+          defaultBackground={commonBackgrounds.mythicCardBackground}
           deckStyle={styles.decksStyle}
           ancientDeck
           removeCard={this.removeCard}

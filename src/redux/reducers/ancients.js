@@ -20,7 +20,11 @@ const defaultState = {
       brownCards: 0,
     },
   },
-  difficulty: 'normal'
+  difficulty: 'normal',
+  specialCards: [],
+  specialCardsBackground: false,
+  contactsDeck: [],
+  contactsDeckBackground: false,
 }
 
 const reducer = (state = defaultState, action) => {
@@ -30,7 +34,11 @@ const reducer = (state = defaultState, action) => {
         ...state,
         ancientId: action.payload.id,
         ancientName: action.payload.name,
-        cards: action.payload.cards
+        cards: action.payload.cards,
+        specialCards: action.payload.specialCards,
+        specialCardsBackground: action.payload.specialCardsBackground,
+        contactsDeck: action.payload.contactsDeck,
+        contactsDeckBackground: action.payload.contactsDeckBackground
       }
     }
     case ActionTypes.CHOOSE_DIFFICULTY_RESULT: {

@@ -15,6 +15,26 @@ const deck = createSelector(
   mythicCardsState => get(mythicCardsState, 'deck', [])
 )
 
+const specialCardsBackground = createSelector(
+  ancientSelector,
+  ancientState => get(ancientState, 'specialCardsBackground', false)
+)
+
+const specialCards = createSelector(
+  ancientSelector,
+  ancientState => get(ancientState, 'specialCards', [])
+)
+
+const contactsDeck = createSelector(
+  ancientSelector,
+  ancientState => get(ancientState, 'contactsDeck', [])
+)
+
+const contactsDeckBackground = createSelector(
+  ancientSelector,
+  ancientState => get(ancientState, 'contactsDeckBackground', '')
+)
+
 const firstStage = createSelector(
   mythicCardsSelector,
   mythicCardsState => get(mythicCardsState, 'firstStage', [])
@@ -71,5 +91,9 @@ export default createStructuredSelector({
   brownContacts,
   commonContacts,
   gates,
-  expeditions
+  expeditions,
+  specialCardsBackground,
+  specialCards,
+  contactsDeck,
+  contactsDeckBackground
 })
