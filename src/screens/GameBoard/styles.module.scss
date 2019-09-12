@@ -11,7 +11,8 @@
 
 .mythicCardsContainer {
   width: 35%;
-  height: 500px;
+  height: 600px;
+  padding: 10px;
 }
 
 
@@ -21,4 +22,5 @@
   justify-content: space-around;
   width: 60%;
   height: 500px;
+  overflow-y: auto;
 }

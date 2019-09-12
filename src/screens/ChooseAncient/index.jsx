@@ -6,7 +6,14 @@ import styles from './styles.module.scss';
 import Button from '../../components/Button';
 import AncientCard from '../../components/AncientCard';
 import background from '../../assets/home.png'
-import { purpleContacts, gates } from '../../data/commonCards'
+import {
+  purpleContacts,
+  greenContacts,
+  brownContacts,
+  gates,
+  commonContacts,
+  expeditions
+} from '../../data/commonCards'
 
 import Modal from '../../components/Modal';
 import { ancients } from '../../data'
@@ -50,7 +57,11 @@ class ChooseAncient extends Component {
       shuffleCommonCards(
         {
           purpleContacts,
-          gates
+          greenContacts,
+          brownContacts,
+          commonContacts,
+          gates,
+          expeditions
         }
       );
       history.push('/chooseDifficulty')

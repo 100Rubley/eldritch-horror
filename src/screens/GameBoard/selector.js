@@ -35,9 +35,29 @@ const purpleContacts = createSelector(
   commonDecksState => get(commonDecksState, 'purpleContacts', [])
 )
 
+const greenContacts = createSelector(
+  commonDecksSelector,
+  commonDecksState => get(commonDecksState, 'greenContacts', [])
+)
+
+const brownContacts = createSelector(
+  commonDecksSelector,
+  commonDecksState => get(commonDecksState, 'brownContacts', [])
+)
+
+const commonContacts = createSelector(
+  commonDecksSelector,
+  commonDecksState => get(commonDecksState, 'commonContacts', [])
+)
+
 const gates = createSelector(
   commonDecksSelector,
   commonDecksState => get(commonDecksState, 'gates', [])
+)
+
+const expeditions = createSelector(
+  commonDecksSelector,
+  commonDecksState => get(commonDecksState, 'expeditions', [])
 )
 
 export default createStructuredSelector({
@@ -47,5 +67,9 @@ export default createStructuredSelector({
   secondStage,
   thirdStage,
   purpleContacts,
-  gates
+  greenContacts,
+  brownContacts,
+  commonContacts,
+  gates,
+  expeditions
 })

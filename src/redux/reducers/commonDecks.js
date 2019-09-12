@@ -2,6 +2,11 @@ import * as ActionTypes from '../actionTypes/commonDecks';
 
 const defaultState = {
   purpleContacts: [],
+  greenContacts: [],
+  brownContacts: [],
+  commonContacts: [],
+  gates: [],
+  expeditions: []
 }
 
 const reducer = (state = defaultState, action) => {
@@ -10,7 +15,11 @@ const reducer = (state = defaultState, action) => {
       return {
         ...state,
         purpleContacts: action.payload.purpleContacts,
-        gates: action.payload.gates
+        greenContacts: action.payload.greenContacts,
+        brownContacts: action.payload.brownContacts,
+        commonContacts: action.payload.commonContacts,
+        gates: action.payload.gates,
+        expeditions: action.payload.expeditions
       }
     }
     default: 

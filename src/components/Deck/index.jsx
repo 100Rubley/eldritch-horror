@@ -21,7 +21,13 @@ class Deck extends Component {
 
   onCardClick = () => {
     const { deck } = this.state;
-    const { ancientDeck } = this.props;
+    const { ancientDeck, expeditionsDeck } = this.props;
+    if(expeditionsDeck) {
+      this.setState({
+        defaultBackground: deck[0].cardBack
+      })
+    }
+    
     if(deck.length > 0){
       const nextCard = deck.shift();
       if(deck.length === 0) {
@@ -60,9 +66,13 @@ class Deck extends Component {
 
   deckBackgroundCalc = () => {
     const { deck, defaultBackground} = this.state;
-    const { ancientDeck } = this.props;
+    const { ancientDeck, expeditionsDeck } = this.props;
     if(deck.length>0) {
-      return defaultBackground
+      if(expeditionsDeck) {
+        return deck[0].cardBack
+      } else {
+        return defaultBackground
+      }
     } else {
       if(ancientDeck) {
         return crossIcon
@@ -73,7 +83,7 @@ class Deck extends Component {
   }
 
   render() {
-    const { background, cardClicked, isModalOpen, defaultBackground, isEmpty } = this.state;
+    const { background, cardClicked, isModalOpen, isEmpty, defaultBackground } = this.state;
     const { deckStyle, deckLabel } = this.props;
     return (
       <div>
